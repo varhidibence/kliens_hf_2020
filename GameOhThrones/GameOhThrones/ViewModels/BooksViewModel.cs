@@ -13,15 +13,15 @@ namespace GameOhThrones.ViewModels
 {
     public class BooksViewModel : Observable
     {
-        private SampleOrder _selected;
+        private Book _selected;
 
-        public SampleOrder Selected
+        public Book Selected
         {
             get { return _selected; }
             set { Set(ref _selected, value); }
         }
 
-        public ObservableCollection<SampleOrder> SampleItems { get; private set; } = new ObservableCollection<SampleOrder>();
+        public ObservableCollection<Book> SampleItems { get; private set; } = new ObservableCollection<Book>();
 
         public BooksViewModel()
         {

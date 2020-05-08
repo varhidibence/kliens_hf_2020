@@ -13,15 +13,15 @@ namespace GameOhThrones.ViewModels
 {
     public class HousesViewModel : Observable
     {
-        private SampleOrder _selected;
+        private House _selected;
 
-        public SampleOrder Selected
+        public House Selected
         {
             get { return _selected; }
             set { Set(ref _selected, value); }
         }
 
-        public ObservableCollection<SampleOrder> SampleItems { get; private set; } = new ObservableCollection<SampleOrder>();
+        public ObservableCollection<House> SampleItems { get; private set; } = new ObservableCollection<House>();
 
         public HousesViewModel()
         {
@@ -29,7 +29,7 @@ namespace GameOhThrones.ViewModels
 
         public async Task LoadDataAsync(MasterDetailsViewState viewState)
         {
-            SampleItems.Clear();
+            /*SampleItems.Clear();
 
             var data = await SampleDataService.GetMasterDetailDataAsync();
 
@@ -41,7 +41,7 @@ namespace GameOhThrones.ViewModels
             if (viewState == MasterDetailsViewState.Both)
             {
                 Selected = SampleItems.First();
-            }
+            }*/
         }
     }
 }
