@@ -23,6 +23,11 @@ namespace GameOhThrones.Core.Models
         public List<string> ancestralWeapons { get; set; }
         public List<House> cadetBranches { get; set; }
         public List<Character> swornMembers { get; set; }
+
+        public override string ToString()
+        {
+            return name;
+        }
     }
 
 }

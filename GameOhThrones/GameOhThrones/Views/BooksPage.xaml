@@ -25,8 +25,8 @@
                     Grid.Column="1"
                     Margin="{StaticResource SmallLeftMargin}"
                     VerticalAlignment="Center">
-                    <TextBlock Style="{ThemeResource ListTitleStyle}" Text="{x:Bind url}" />
-                    <TextBlock Style="{StaticResource ListSubTitleStyle}" Text="{x:Bind authors}" />
+                    <TextBlock Style="{ThemeResource ListTitleStyle}" Text="{x:Bind name}" />
+                    <TextBlock Style="{StaticResource ListSubTitleStyle}" Text="{x:Bind released}" />
                 </StackPanel>
             </Grid>
         </DataTemplate>

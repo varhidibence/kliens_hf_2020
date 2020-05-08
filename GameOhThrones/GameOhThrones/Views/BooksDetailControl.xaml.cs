@@ -9,13 +9,18 @@ namespace GameOhThrones.Views
 {
     public sealed partial class BooksDetailControl : UserControl
     {
-        public SampleOrder MasterMenuItem
+        public Book MasterMenuItem
         {
-            get { return GetValue(MasterMenuItemProperty) as SampleOrder; }
+            get { return GetValue(MasterMenuItemProperty) as Book; }
             set { SetValue(MasterMenuItemProperty, value); }
         }
 
-        public static readonly DependencyProperty MasterMenuItemProperty = DependencyProperty.Register("MasterMenuItem", typeof(SampleOrder), typeof(BooksDetailControl), new PropertyMetadata(null, OnMasterMenuItemPropertyChanged));
+        public static readonly DependencyProperty MasterMenuItemProperty =
+                DependencyProperty.Register("MasterMenuItem",
+                        typeof(Book),
+                        typeof(BooksDetailControl),
+                        new PropertyMetadata(null,
+                        OnMasterMenuItemPropertyChanged));
 
         public BooksDetailControl()
         {

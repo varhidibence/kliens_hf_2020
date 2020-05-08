@@ -23,6 +23,11 @@ namespace GameOhThrones.Core.Models
         public List<Book> povBooks { get; set; }
         public List<string> tvSeries { get; set; }
         public List<string> playedBy { get; set; }
+
+        public override string ToString()
+        {
+            return name;
+        }
     }
 
 }

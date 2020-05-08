@@ -22,6 +22,7 @@ namespace GameOhThrones.ViewModels
         }
 
         public ObservableCollection<Book> SampleItems { get; private set; } = new ObservableCollection<Book>();
+        
 
         public BooksViewModel()
         {
@@ -31,7 +32,7 @@ namespace GameOhThrones.ViewModels
         {
             SampleItems.Clear();
 
-            var data = await SampleDataService.GetMasterDetailDataAsync();
+            var data = await SampleDataService.GetSampleBookAsync();
 
             foreach (var item in data)
             {

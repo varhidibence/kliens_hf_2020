@@ -29,9 +29,9 @@ namespace GameOhThrones.ViewModels
 
         public async Task LoadDataAsync(MasterDetailsViewState viewState)
         {
-            /*SampleItems.Clear();
+            SampleItems.Clear();
 
-            var data = await SampleDataService.GetMasterDetailDataAsync();
+            var data = await SampleDataService.GetHousesAsync();
 
             foreach (var item in data)
             {
@@ -41,7 +41,7 @@ namespace GameOhThrones.ViewModels
             if (viewState == MasterDetailsViewState.Both)
             {
                 Selected = SampleItems.First();
-            }*/
+            }
         }
     }
 }
