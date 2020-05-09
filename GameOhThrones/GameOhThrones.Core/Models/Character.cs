@@ -15,12 +15,12 @@ namespace GameOhThrones.Core.Models
         public string died { get; set; }
         public List<string> titles { get; set; }
         public List<string> aliases { get; set; }
-        public Character father { get; set; }
-        public Character mother { get; set; }
-        public List<Character> spouse { get; set; }
-        public List<House> allegiances { get; set; }
-        public List<Book> books { get; set; }
-        public List<Book> povBooks { get; set; }
+        public string father { get; set; }
+        public string mother { get; set; }
+        public List<string> spouse { get; set; }
+        public List<string> allegiances { get; set; }
+        public List<string> books { get; set; }
+        public List<string> povBooks { get; set; }
         public List<string> tvSeries { get; set; }
         public List<string> playedBy { get; set; }
 
@@ -29,5 +29,4 @@ namespace GameOhThrones.Core.Models
             return name;
         }
     }
-
 }

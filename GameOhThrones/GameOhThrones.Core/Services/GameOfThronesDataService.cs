@@ -29,12 +29,22 @@ namespace GameOhThrones.Core.Services
             return await GetAsync<List<Book>>(new Uri(serverUrl, "api/books"));
         }
 
-        public async Task<List<Character>> GetAllCharactersAsync()
+        public static async Task<List<Character>> GetAllCharactersAsync()
         {
             return await GetAsync<List<Character>>(new Uri(serverUrl, "api/characters"));
         }
 
-        public async Task<List<House>> GetAllHousesAsync()
+        public static async Task<Character> GetCharacterByIdAsync(int id)
+        {
+            return await GetAsync<Character>(new Uri(serverUrl, $"api/characters/{id}"));
+        }
+
+        public static async Task<Character> GetCharacterByURLAsync(string url)
+        {
+            return await GetAsync<Character>(new Uri(url));
+        }
+
+        public static async Task<List<House>> GetAllHousesAsync()
         {
             return await GetAsync<List<House>>(new Uri(serverUrl, "api/houses"));
         }

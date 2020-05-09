@@ -27,21 +27,33 @@ namespace GameOhThrones.ViewModels
         {
         }
 
-        /*public async Task LoadDataAsync(MasterDetailsViewState viewState)
+        public async Task LoadDataAsync(MasterDetailsViewState viewState)
         {
             SampleItems.Clear();
 
-            var data = await SampleDataService.GetCharactersAsync();
+            var data = await GameOfThronesDataService.GetAllCharactersAsync();
 
             foreach (var item in data)
             {
+                if (item.father.Length > 0)
+                {
+                    var father = await GameOfThronesDataService.GetCharacterByURLAsync(item.father);
+                    item.father = father.name;
+                }
+                if (item.mother.Length > 0)
+                {
+                    var mother = await GameOfThronesDataService.GetCharacterByURLAsync(item.mother);
+                    item.mother = mother.name;
+                }
+
                 SampleItems.Add(item);
+                
             }
 
             if (viewState == MasterDetailsViewState.Both)
             {
                 Selected = SampleItems.First();
             }
-        }*/
+        }
     }
 }
