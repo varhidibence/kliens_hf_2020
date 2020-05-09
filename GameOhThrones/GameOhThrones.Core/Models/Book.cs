@@ -16,8 +16,8 @@ namespace GameOhThrones.Core.Models
         public string country { get; set; }
         public string mediaType { get; set; }
         public DateTime released { get; set; }
-        public List<Character> characters { get; set; }
-        public List<Character> povCharacters { get; set; }
+        public List<string> characters { get; set; }
+        public List<string> povCharacters { get; set; }
     }
 
 }

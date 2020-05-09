@@ -19,7 +19,7 @@ namespace GameOhThrones.Views
 
         private async void HousesPage_Loaded(object sender, RoutedEventArgs e)
         {
-            await ViewModel.LoadDataAsync(MasterDetailsViewControl.ViewState);
+            //await ViewModel.LoadDataAsync(MasterDetailsViewControl.ViewState);
         }
     }
 }

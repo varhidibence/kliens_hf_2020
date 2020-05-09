@@ -27,7 +27,7 @@ namespace GameOhThrones.ViewModels
         {
         }
 
-        public async Task LoadDataAsync(MasterDetailsViewState viewState)
+        /*public async Task LoadDataAsync(MasterDetailsViewState viewState)
         {
             SampleItems.Clear();
 
@@ -42,6 +42,6 @@ namespace GameOhThrones.ViewModels
             {
                 Selected = SampleItems.First();
             }
-        }
+        }*/
     }
 }
