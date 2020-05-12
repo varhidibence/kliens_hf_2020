@@ -14,15 +14,15 @@ namespace GameOhThrones.Core.Models
         public string words { get; set; }
         public List<string> titles { get; set; }
         public List<string> seats { get; set; }
-        public Character currentLord { get; set; }
-        public Character heir { get; set; }
-        public House overlord { get; set; }
+        public string currentLord { get; set; }
+        public string heir { get; set; }
+        public string overlord { get; set; }
         public string founded { get; set; }
-        public Character founder { get; set; }
+        public string founder { get; set; }
         public string diedOut { get; set; }
         public List<string> ancestralWeapons { get; set; }
-        public List<House> cadetBranches { get; set; }
-        public List<Character> swornMembers { get; set; }
+        public List<string> cadetBranches { get; set; }
+        public List<string> swornMembers { get; set; }
 
         public override string ToString()
         {

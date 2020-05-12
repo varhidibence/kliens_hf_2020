@@ -29,41 +29,74 @@
                     Style="{StaticResource DetailSubTitleStyle}"
                     Text="Coat of arms" />
                 <TextBlock Style="{StaticResource DetailBodyBaseMediumStyle}" Text="{x:Bind MasterMenuItem.coatOfArms, Mode=OneWay}" />
+
                 <TextBlock
                     Margin="{StaticResource SmallTopMargin}"
                     Style="{StaticResource DetailSubTitleStyle}"
                     Text="Words" />
                 <TextBlock Style="{StaticResource DetailBodyBaseMediumStyle}" Text="{x:Bind MasterMenuItem.words, Mode=OneWay}" />
+                
                 <TextBlock
                     Margin="{StaticResource SmallTopMargin}"
                     Style="{StaticResource DetailSubTitleStyle}"
                     Text="Titles" />
-                <TextBlock Style="{StaticResource DetailBodyBaseMediumStyle}" Text="{x:Bind MasterMenuItem.titles, Mode=OneWay}" />
+                <ScrollContentPresenter>
+                    <ListBox ItemsSource="{x:Bind MasterMenuItem.titles}" MaxHeight="200"
+                                MinHeight="10" Background="Azure"></ListBox>
+                </ScrollContentPresenter>
                 <TextBlock
                     Margin="{StaticResource SmallTopMargin}"
                     Style="{StaticResource DetailSubTitleStyle}"
                     Text="Seats" />
-                <TextBlock Style="{StaticResource DetailBodyBaseMediumStyle}" Text="{x:Bind MasterMenuItem.seats, Mode=OneWay}" />
+                <ScrollContentPresenter>
+                    <ListBox ItemsSource="{x:Bind MasterMenuItem.seats}" MaxHeight="200"
+                                MinHeight="10" Background="Azure"></ListBox>
+                </ScrollContentPresenter>
+                
                 <TextBlock
                     Margin="{StaticResource SmallTopMargin}"
                     Style="{StaticResource DetailSubTitleStyle}"
                     Text="Current lord" />
-                <TextBlock Style="{StaticResource DetailBodyBaseMediumStyle}" Text="{x:Bind MasterMenuItem.currentLord, Mode=OneWay}" />
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Show" Click="ShowCurrentLordByUrl"/>
+                </StackPanel>
+                
                 <TextBlock
                     Margin="{StaticResource SmallTopMargin}"
                     Style="{StaticResource DetailSubTitleStyle}"
                     Text="Heir" />
-                <TextBlock Style="{StaticResource DetailBodyBaseMediumStyle}" Text="{x:Bind MasterMenuItem.heir, Mode=OneWay}" />
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Show" Click="ShowHeirByUrl"/>
+                </StackPanel>
+                
                 <TextBlock
                     Margin="{StaticResource SmallTopMargin}"
                     Style="{StaticResource DetailSubTitleStyle}"
                     Text="Overlord" />
-                <TextBlock Style="{StaticResource DetailBodyBaseMediumStyle}" Text="{x:Bind MasterMenuItem.overlord, Mode=OneWay}" />
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Show" Click="ShowOverlordByUrl"/>
+                </StackPanel>
+
+                <TextBlock
+                    Margin="{StaticResource SmallTopMargin}"
+                    Style="{StaticResource DetailSubTitleStyle}"
+                    Text="Coat of arms" />
+                <TextBlock Style="{StaticResource DetailBodyBaseMediumStyle}" Text="{x:Bind MasterMenuItem.coatOfArms, Mode=OneWay}" />
+
                 <TextBlock
                     Margin="{StaticResource SmallTopMargin}"
                     Style="{StaticResource DetailSubTitleStyle}"
                     Text="Founded" />
                 <TextBlock Style="{StaticResource DetailBodyBaseMediumStyle}" Text="{x:Bind MasterMenuItem.founded, Mode=OneWay}" />
+
+                <TextBlock
+                    Margin="{StaticResource SmallTopMargin}"
+                    Style="{StaticResource DetailSubTitleStyle}"
+                    Text="Founder" />
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Show" Click="ShowFounderByUrl"/>
+                </StackPanel>
+                
                 <TextBlock
                     Margin="{StaticResource SmallTopMargin}"
                     Style="{StaticResource DetailSubTitleStyle}"
@@ -73,17 +106,28 @@
                     Margin="{StaticResource SmallTopMargin}"
                     Style="{StaticResource DetailSubTitleStyle}"
                     Text="Ancestral weapons" />
-                <TextBlock Style="{StaticResource DetailBodyBaseMediumStyle}" Text="{x:Bind MasterMenuItem.ancestralWeapons, Mode=OneWay}" />
+                <ScrollContentPresenter>
+                    <ListBox ItemsSource="{x:Bind MasterMenuItem.ancestralWeapons}" MaxHeight="200"
+                                MinHeight="10" Background="Azure"></ListBox>
+                </ScrollContentPresenter>
+                
                 <TextBlock
                     Margin="{StaticResource SmallTopMargin}"
                     Style="{StaticResource DetailSubTitleStyle}"
                     Text="Cadet branches" />
-                <TextBlock Style="{StaticResource DetailBodyBaseMediumStyle}" Text="{x:Bind MasterMenuItem.cadetBranches, Mode=OneWay}" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource DetailBodyBaseMediumStyle}" Text="{x:Bind MasterMenuItem.cadetBranches.Count, Mode=OneWay}" />
+                    <Button Content="Show" Click="ShowCadetBranchesByUrls"/>
+                </StackPanel>
+
                 <TextBlock
                     Margin="{StaticResource SmallTopMargin}"
                     Style="{StaticResource DetailSubTitleStyle}"
                     Text="Sworn members" />
-                <TextBlock Style="{StaticResource DetailBodyBaseMediumStyle}" Text="{x:Bind MasterMenuItem.swornMembers, Mode=OneWay}" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource DetailBodyBaseMediumStyle}" Text="{x:Bind MasterMenuItem.swornMembers.Count, Mode=OneWay}" />
+                    <Button Content="Show" Click="ShowSwornMembersByUrls"/>
+                </StackPanel>
 
             </StackPanel>
         </StackPanel>

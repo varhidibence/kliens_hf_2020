@@ -10,7 +10,7 @@ namespace GameOhThrones.Core.Models
         public string url { get; set; }
         public string name { get; set; }
         public string isbn { get; set; }
-        public List<string> authors { get; set; }
+        public string[] authors { get; set; }
         public int numberOfPages { get; set; }
         public string publisher { get; set; }
         public string country { get; set; }
