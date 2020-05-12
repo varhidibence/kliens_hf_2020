@@ -48,10 +48,5 @@ namespace GameOhThrones.Core.Services
         {
             return await GetAsync<List<House>>(new Uri(serverUrl, "api/houses"));
         }
-
-        /*public async Task<Recipe> GetRecipeAsync(int id)
-        {
-            return await GetAsync<Recipe>(new Uri(serverUrl, $"api/Recipes/{id}"));
-        }*/
     }
 }

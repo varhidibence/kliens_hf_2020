@@ -7,6 +7,8 @@ namespace GameOhThrones.Core.Models
 
     public class Character
     {
+        public Character() { }
+
         public string url { get; set; }
         public string name { get; set; }
         public string gender { get; set; }
@@ -17,7 +19,7 @@ namespace GameOhThrones.Core.Models
         public List<string> aliases { get; set; }
         public string father { get; set; }
         public string mother { get; set; }
-        public List<string> spouse { get; set; }
+        public string[] spouse { get; set; }
         public List<string> allegiances { get; set; }
         public List<string> books { get; set; }
         public List<string> povBooks { get; set; }

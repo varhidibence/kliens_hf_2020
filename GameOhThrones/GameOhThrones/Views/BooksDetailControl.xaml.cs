@@ -1,7 +1,9 @@
 ﻿using System;
 
 using GameOhThrones.Core.Models;
-
+using GameOhThrones.Helpers;
+using GameOhThrones.Services;
+using GameOhThrones.ViewModels;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -31,6 +33,11 @@ namespace GameOhThrones.Views
         {
             var control = d as BooksDetailControl;
             control.ForegroundElement.ChangeView(0, 0, 1);
+        }
+
+        private void ShowCharacter_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(typeof(CharactersPage), MasterMenuItem.characters);
         }
     }
 }

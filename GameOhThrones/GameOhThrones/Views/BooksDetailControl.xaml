@@ -35,6 +35,9 @@
                     Style="{StaticResource DetailSubTitleStyle}"
                     Text="Authors" />
                 <TextBlock Style="{StaticResource DetailBodyBaseMediumStyle}" Text="{x:Bind MasterMenuItem.authors, Mode=OneWay}" />
+                <ScrollContentPresenter>
+                    <ListBox ItemsSource="{x:Bind MasterMenuItem.authors}" MaxHeight="200"></ListBox>
+                </ScrollContentPresenter>
                 <TextBlock
                     Margin="{StaticResource SmallTopMargin}"
                     Style="{StaticResource DetailSubTitleStyle}"
@@ -61,7 +64,7 @@
                     Style="{StaticResource DetailSubTitleStyle}"
                     Text="Characters" />
                 <TextBlock Style="{StaticResource DetailBodyBaseMediumStyle}" Text="{x:Bind MasterMenuItem.characters.Count, Mode=OneWay}" />
-                <Button Content="Show characters"/>
+                <Button Content="Show characters" Click="ShowCharacter_Click"/>
 
                 <TextBlock
                     Margin="{StaticResource SmallTopMargin}"

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ using GameOhThrones.Core.Services;
 using GameOhThrones.Helpers;
 
 using Microsoft.Toolkit.Uwp.UI.Controls;
+using Windows.Media.Miracast;
 
 namespace GameOhThrones.ViewModels
 {
@@ -22,7 +24,9 @@ namespace GameOhThrones.ViewModels
         }
 
         public ObservableCollection<Book> SampleItems { get; private set; } = new ObservableCollection<Book>();
-        
+
+        public List<String> authors { get; set; }
+
         public BooksViewModel()
         {
         }
@@ -37,6 +41,7 @@ namespace GameOhThrones.ViewModels
             foreach (var item in data)
             {
                 SampleItems.Add(item);
+
             }
 
             if (viewState == MasterDetailsViewState.Both)
