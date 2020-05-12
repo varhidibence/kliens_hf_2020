@@ -27,14 +27,17 @@ namespace GameOhThrones.Views
         {
             List<string> charactersURL = new List<string>();
             charactersURL = e.Parameter as List<string>;
-            LoadURL(charactersURL);
+            if (charactersURL != null)
+                LoadURL(charactersURL);
             
             base.OnNavigatedTo(e);
         }
 
         private async void LoadURL(List<string> charactersURL)
         {
-            await ViewModel.LoadDataAsync(MasterDetailsViewControl.ViewState, charactersURL);
+            await ViewModel.LoadDataAsync(MasterDetailsViewControl.ViewState, charactersURL.ToArray() );
         }
     }
 }
+
+

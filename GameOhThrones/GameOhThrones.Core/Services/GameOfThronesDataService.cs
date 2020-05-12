@@ -19,7 +19,15 @@ namespace GameOhThrones.Core.Services
             {
                 var response = await client.GetAsync(uri);
                 var json = await response.Content.ReadAsStringAsync();
-                T result = JsonConvert.DeserializeObject<T>(json);
+                T result = default(T);
+                try
+                {
+                    result = JsonConvert.DeserializeObject<T>(json);
+                }
+                catch (Exception)
+                {
+                }
+                
                 return result;
             }
         }
@@ -32,6 +40,11 @@ namespace GameOhThrones.Core.Services
         public static async Task<List<Character>> GetAllCharactersAsync()
         {
             return await GetAsync<List<Character>>(new Uri(serverUrl, "api/characters"));
+        }
+
+        public static async Task<Book> GetBookByUrlAsync(string url)
+        {
+            return await GetAsync<Book>(new Uri(url));
         }
 
         public static async Task<Character> GetCharacterByIdAsync(int id)
@@ -47,6 +60,11 @@ namespace GameOhThrones.Core.Services
         public static async Task<List<House>> GetAllHousesAsync()
         {
             return await GetAsync<List<House>>(new Uri(serverUrl, "api/houses"));
+        }
+
+        public static async Task<House> GetHouseByUrlAsync(string url)
+        {
+            return await GetAsync<House>(new Uri(url));
         }
     }
 }

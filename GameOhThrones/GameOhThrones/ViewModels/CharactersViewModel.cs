@@ -29,7 +29,7 @@ namespace GameOhThrones.ViewModels
         {
         }
 
-        public async Task LoadDataAsync(MasterDetailsViewState viewState, List<string> urls= null)
+        public async Task LoadDataAsync(MasterDetailsViewState viewState, string[] urls= null)
         {
             SampleItems.Clear();
 
@@ -37,20 +37,27 @@ namespace GameOhThrones.ViewModels
             {
                 foreach (string url in urls)
                 {
+                    int i = 0;
                     if (url != null)
                     {
                         var character = await GameOfThronesDataService.GetCharacterByURLAsync(url);
-                        if (character.father.Length > 0)
+                        if(character != null)
                         {
-                            var father = await GameOfThronesDataService.GetCharacterByURLAsync(character.father);
-                            character.father = father.name;
+                            if (character.father.Length > 0)
+                            {
+                                var father = await GameOfThronesDataService.GetCharacterByURLAsync(character.father);
+                                character.father = father.name;
+                            }
+                            if (character.mother.Length > 0)
+                            {
+                                var mother = await GameOfThronesDataService.GetCharacterByURLAsync(character.mother);
+                                character.mother = mother.name;
+                            }
+                            SampleItems.Add(character);
+                            if (++i > 15)
+                                break;
                         }
-                        if (character.mother.Length > 0)
-                        {
-                            var mother = await GameOfThronesDataService.GetCharacterByURLAsync(character.mother);
-                            character.mother = mother.name;
-                        }
-                        SampleItems.Add(character);
+                        
                     }
                     
                 }
@@ -61,23 +68,28 @@ namespace GameOhThrones.ViewModels
 
                 foreach (var item in data)
                 {
-                    if (item.father.Length > 0)
+                    if (item != null)
                     {
-                        var father = await GameOfThronesDataService.GetCharacterByURLAsync(item.father);
-                        item.father = father.name;
+                        if (item.father.Length > 0)
+                        {
+                            var father = await GameOfThronesDataService.GetCharacterByURLAsync(item.father);
+                            item.father = father.name;
+                        }
+                        if (item.mother.Length > 0)
+                        {
+                            var mother = await GameOfThronesDataService.GetCharacterByURLAsync(item.mother);
+                            item.mother = mother.name;
+                        }
+                        SampleItems.Add(item);
                     }
-                    if (item.mother.Length > 0)
-                    {
-                        var mother = await GameOfThronesDataService.GetCharacterByURLAsync(item.mother);
-                        item.mother = mother.name;
-                    }
-                    SampleItems.Add(item);
+                    
                 }
             }
 
             if (viewState == MasterDetailsViewState.Both)
             {
-                Selected = SampleItems.First();
+                if (SampleItems != null)
+                    Selected = SampleItems.First();
             }
         }
     }

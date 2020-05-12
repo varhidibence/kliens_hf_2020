@@ -36,7 +36,8 @@
                     Text="Authors" />
                 <TextBlock Style="{StaticResource DetailBodyBaseMediumStyle}" Text="{x:Bind MasterMenuItem.authors, Mode=OneWay}" />
                 <ScrollContentPresenter>
-                    <ListBox ItemsSource="{x:Bind MasterMenuItem.authors}" MaxHeight="200"></ListBox>
+                    <ListBox ItemsSource="{x:Bind MasterMenuItem.authors}" MaxHeight="200"
+                                MinHeight="10" Background="Azure"></ListBox>
                 </ScrollContentPresenter>
                 <TextBlock
                     Margin="{StaticResource SmallTopMargin}"
@@ -62,7 +63,7 @@
                 <TextBlock
                     Margin="{StaticResource SmallTopMargin}"
                     Style="{StaticResource DetailSubTitleStyle}"
-                    Text="Characters" />
+                    Text="Number of characters" />
                 <TextBlock Style="{StaticResource DetailBodyBaseMediumStyle}" Text="{x:Bind MasterMenuItem.characters.Count, Mode=OneWay}" />
                 <Button Content="Show characters" Click="ShowCharacter_Click"/>
 
@@ -71,7 +72,7 @@
                     Style="{StaticResource DetailSubTitleStyle}"
                     Text="POV-chapter characters" />
                 <TextBlock Style="{StaticResource DetailBodyBaseMediumStyle}" Text="{x:Bind MasterMenuItem.povCharacters.Count, Mode=OneWay}" />
-
+                <Button Content="Show POV characters" Click="ShowCharacter_Click"/>
             </StackPanel>
         </StackPanel>
     </ScrollViewer>

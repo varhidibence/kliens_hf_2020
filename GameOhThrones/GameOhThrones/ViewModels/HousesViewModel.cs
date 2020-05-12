@@ -27,21 +27,46 @@ namespace GameOhThrones.ViewModels
         {
         }
 
-        /*public async Task LoadDataAsync(MasterDetailsViewState viewState)
+        public async Task LoadDataAsync(MasterDetailsViewState viewState, string[] urls = null)
         {
             SampleItems.Clear();
 
-            var data = await SampleDataService.GetHousesAsync();
-
-            foreach (var item in data)
+            if (urls != null)
             {
-                SampleItems.Add(item);
+                foreach (string url in urls)
+                {
+                    int i = 0;
+                    if (url != null)
+                    {
+                        var house = await GameOfThronesDataService.GetHouseByUrlAsync(url);
+                        if (house != null)
+                        {
+                            SampleItems.Add(house);
+                            if (++i > 15)
+                                break;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                var data = await GameOfThronesDataService.GetAllHousesAsync();
+                if (data != null)
+                {
+                    foreach (var item in data)
+                    {
+                        if (item != null)
+                            SampleItems.Add(item);
+                    }
+                }
+                
             }
 
             if (viewState == MasterDetailsViewState.Both)
             {
-                Selected = SampleItems.First();
+                if (SampleItems != null)
+                    Selected = SampleItems.First();
             }
-        }*/
+        }
     }
 }
