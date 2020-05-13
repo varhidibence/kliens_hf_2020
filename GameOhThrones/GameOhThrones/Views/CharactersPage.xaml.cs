@@ -30,12 +30,12 @@ namespace GameOhThrones.Views
             if (charactersURL != null)
                 LoadURL(charactersURL);
             
-            base.OnNavigatedTo(e);
+            //base.OnNavigatedTo(e);
         }
 
         private async void LoadURL(List<string> charactersURL)
         {
-            await ViewModel.LoadDataAsync(MasterDetailsViewControl.ViewState, charactersURL.ToArray() );
+            await ViewModel.LoadDataAsyncWithURLs(MasterDetailsViewControl.ViewState, charactersURL.ToArray() );
         }
     }
 }

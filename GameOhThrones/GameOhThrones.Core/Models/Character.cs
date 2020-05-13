@@ -19,7 +19,7 @@ namespace GameOhThrones.Core.Models
         public List<string> aliases { get; set; }
         public string father { get; set; }
         public string mother { get; set; }
-        public IList<string> Spouse { get; set; }
+        public string Spouse { get; set; }
         public List<string> allegiances { get; set; }
         public List<string> books { get; set; }
         public List<string> povBooks { get; set; }

@@ -29,50 +29,17 @@ namespace GameOhThrones.ViewModels
         {
         }
 
-        public async Task LoadDataAsync(MasterDetailsViewState viewState, string[] urls= null)
+        public async Task LoadDataAsync(MasterDetailsViewState viewState)
         {
             SampleItems.Clear();
+            
+            var data = await GameOfThronesDataService.GetAllCharactersAsync();
 
-            if (urls != null)
-            {
-                foreach (string url in urls)
-                {
-                    int i = 0;
-                    if (url != null)
-                    {
-                        var character = await GameOfThronesDataService.GetCharacterByURLAsync(url);
-                        if(character != null)
-                        {
-                            if (character.father.Length > 0)
-                            {
-                                var father = await GameOfThronesDataService.GetCharacterByURLAsync(character.father);
-                                if (father != null)
-                                    character.father = father.name;
-                            }
-                            if (character.mother.Length > 0)
-                            {
-                                var mother = await GameOfThronesDataService.GetCharacterByURLAsync(character.mother);
-                                if (mother != null)
-                                    character.mother = mother.name;
-                            }
-                            SampleItems.Add(character);
-                            if (++i > 15)
-                                break;
-                        }
-                        
-                    }
-                    
-                }
-            }
-            else
-            {
-                var data = await GameOfThronesDataService.GetAllCharactersAsync();
-
-                foreach (var item in data)
+            foreach (var item in data)
                 {
                     if (item != null)
                     {
-                        if (item.father.Length > 0)
+                        /*if (item.father.Length > 0)
                         {
                             var father = await GameOfThronesDataService.GetCharacterByURLAsync(item.father);
                             if (father != null)
@@ -83,10 +50,45 @@ namespace GameOhThrones.ViewModels
                             var mother = await GameOfThronesDataService.GetCharacterByURLAsync(item.mother);
                             if (mother != null)
                                 item.mother = mother.name;
-                        }
+                        }*/
                         SampleItems.Add(item);
                     }
                     
+                }
+
+            if (viewState == MasterDetailsViewState.Both)
+            {
+                if (SampleItems != null)
+                    Selected = SampleItems.First();
+            }
+        }
+
+        public async Task LoadDataAsyncWithURLs(MasterDetailsViewState viewState, string[] urls = null)
+        {
+            SampleItems.Clear();
+            if (urls != null)
+            {
+                var list = await GameOfThronesDataService.GetCharacterByURLAsync(urls);
+                SampleItems.Clear();
+                foreach (var item in list)
+                {
+                    if (item != null)
+                    {
+                        /*if (item.father.Length > 0)
+                        {
+                            var father = await GameOfThronesDataService.GetCharacterByURLAsync(item.father);
+                            if (father != null)
+                                item.father = father.name;
+                        }
+                        if (item.mother.Length > 0)
+                        {
+                            var mother = await GameOfThronesDataService.GetCharacterByURLAsync(item.mother);
+                            if (mother != null)
+                                item.mother = mother.name;
+                        }*/
+                        SampleItems.Add(item);
+                    }
+
                 }
             }
 
