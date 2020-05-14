@@ -39,21 +39,8 @@ namespace GameOhThrones.ViewModels
                 {
                     if (item != null)
                     {
-                        /*if (item.father.Length > 0)
-                        {
-                            var father = await GameOfThronesDataService.GetCharacterByURLAsync(item.father);
-                            if (father != null)
-                                item.father = father.name;
-                        }
-                        if (item.mother.Length > 0)
-                        {
-                            var mother = await GameOfThronesDataService.GetCharacterByURLAsync(item.mother);
-                            if (mother != null)
-                                item.mother = mother.name;
-                        }*/
                         SampleItems.Add(item);
-                    }
-                    
+                    }  
                 }
 
             if (viewState == MasterDetailsViewState.Both)
@@ -68,25 +55,13 @@ namespace GameOhThrones.ViewModels
             SampleItems.Clear();
             if (urls != null)
             {
-                var list = await GameOfThronesDataService.GetCharacterByURLAsync(urls);
+                var characters = await GameOfThronesDataService.GetCharacterByURLAsync(urls, 15);
                 SampleItems.Clear();
-                foreach (var item in list)
+                foreach (var character in characters)
                 {
-                    if (item != null)
+                    if (character != null)
                     {
-                        /*if (item.father.Length > 0)
-                        {
-                            var father = await GameOfThronesDataService.GetCharacterByURLAsync(item.father);
-                            if (father != null)
-                                item.father = father.name;
-                        }
-                        if (item.mother.Length > 0)
-                        {
-                            var mother = await GameOfThronesDataService.GetCharacterByURLAsync(item.mother);
-                            if (mother != null)
-                                item.mother = mother.name;
-                        }*/
-                        SampleItems.Add(item);
+                        SampleItems.Add(character);
                     }
 
                 }

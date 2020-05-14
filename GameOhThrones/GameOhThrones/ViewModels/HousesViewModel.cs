@@ -27,39 +27,41 @@ namespace GameOhThrones.ViewModels
         {
         }
 
+        public async Task LoadDataAsync(MasterDetailsViewState viewState)
+        {
+            SampleItems.Clear();
+            var houses = await GameOfThronesDataService.GetAllHousesAsync();
+
+            if (houses != null)
+            {
+                foreach (var house in houses)
+                {
+                    if (house != null)
+                        SampleItems.Add(house);
+                }
+            }
+
+            if (viewState == MasterDetailsViewState.Both)
+            {
+                if (SampleItems != null)
+                    Selected = SampleItems.First();
+            }
+        }
+
         public async Task LoadDataAsync(MasterDetailsViewState viewState, string[] urls = null)
         {
             SampleItems.Clear();
-
             if (urls != null)
             {
-                foreach (string url in urls)
+                var houses = await GameOfThronesDataService.GetHouseByURLAsync(urls, 15);
+                SampleItems.Clear();
+                foreach (var house in houses)
                 {
-                    int i = 0;
-                    if (url != null)
+                    if (house != null)
                     {
-                        var house = await GameOfThronesDataService.GetHouseByUrlAsync(url);
-                        if (house != null)
-                        {
-                            SampleItems.Add(house);
-                            if (++i > 15)
-                                break;
-                        }
+                        SampleItems.Add(house);
                     }
                 }
-            }
-            else
-            {
-                var data = await GameOfThronesDataService.GetAllHousesAsync();
-                if (data != null)
-                {
-                    foreach (var item in data)
-                    {
-                        if (item != null)
-                            SampleItems.Add(item);
-                    }
-                }
-                
             }
 
             if (viewState == MasterDetailsViewState.Both)

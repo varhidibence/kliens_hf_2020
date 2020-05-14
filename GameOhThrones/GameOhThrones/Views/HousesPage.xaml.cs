@@ -30,7 +30,7 @@ namespace GameOhThrones.Views
             if (houseURL != null)
                 LoadURL(houseURL);
 
-            base.OnNavigatedTo(e);
+            //base.OnNavigatedTo(e);
         }
 
         private async void LoadURL(List<string> houseURL)

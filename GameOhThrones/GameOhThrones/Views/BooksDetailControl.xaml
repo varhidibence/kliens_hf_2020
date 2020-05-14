@@ -65,14 +65,14 @@
                     Style="{StaticResource DetailSubTitleStyle}"
                     Text="Number of characters" />
                 <TextBlock Style="{StaticResource DetailBodyBaseMediumStyle}" Text="{x:Bind MasterMenuItem.characters.Count, Mode=OneWay}" />
-                <Button Content="Show characters" Click="ShowCharacter_Click"/>
+                <Button Content="Show characters" Click="ShowCharacters_Click"/>
 
                 <TextBlock
                     Margin="{StaticResource SmallTopMargin}"
                     Style="{StaticResource DetailSubTitleStyle}"
                     Text="POV-chapter characters" />
                 <TextBlock Style="{StaticResource DetailBodyBaseMediumStyle}" Text="{x:Bind MasterMenuItem.povCharacters.Count, Mode=OneWay}" />
-                <Button Content="Show POV characters" Click="ShowCharacter_Click"/>
+                <Button Content="Show POV characters" Click="ShowPOVCharacters_Click"/>
             </StackPanel>
         </StackPanel>
     </ScrollViewer>

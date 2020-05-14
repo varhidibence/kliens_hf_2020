@@ -31,12 +31,12 @@ namespace GameOhThrones.Views
             {
                 LoadURL(booksURL);
             }
-            base.OnNavigatedTo(e);
+            //base.OnNavigatedTo(e);
         }
 
         private async void LoadURL(List<string> booksURL)
         {
-            await ViewModel.LoadDataAsync(MasterDetailsViewControl.ViewState, booksURL.ToArray() );
+            await ViewModel.LoadDataAsyncWithURLs(MasterDetailsViewControl.ViewState, booksURL.ToArray() );
         }
     }
 }

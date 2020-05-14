@@ -35,9 +35,14 @@ namespace GameOhThrones.Views
             control.ForegroundElement.ChangeView(0, 0, 1);
         }
 
-        private void ShowCharacter_Click(object sender, RoutedEventArgs e)
+        private void ShowCharacters_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(typeof(CharactersPage), MasterMenuItem.characters);
+        }
+
+        private void ShowPOVCharacters_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(typeof(CharactersPage), MasterMenuItem.povCharacters);
         }
     }
 }

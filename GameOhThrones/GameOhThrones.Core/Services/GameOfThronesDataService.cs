@@ -34,6 +34,23 @@ namespace GameOhThrones.Core.Services
             }
         }
 
+        public static async Task<List<T>> GetByUrlAsync<T>(string[] urls, int limit)
+        {
+            List<T> list = new List<T>();
+            if (urls != null)
+            {
+                foreach (string url in urls)
+                {
+                    var elem = await GetAsync<T>(new Uri(url));
+                    if (elem != null)
+                        list.Add(elem);
+                    if (list.Count >= limit)
+                        break;
+                }
+            }
+            return list;
+        }
+
         public static async Task<List<Book>> GetAllBooksAsync()
         {
             return await GetAsync<List<Book>>(new Uri(serverUrl, "api/books"));
@@ -44,9 +61,9 @@ namespace GameOhThrones.Core.Services
             return await GetAsync<List<Character>>(new Uri(serverUrl, "api/characters"));
         }
 
-        public static async Task<Book> GetBookByUrlAsync(string url)
+        public static async Task<List<Book>> GetBookByUrlAsync(string[] urls, int limit)
         {
-            return await GetAsync<Book>(new Uri(url));
+            return await GetByUrlAsync<Book>(urls, limit);
         }
 
         public static async Task<Character> GetCharacterByIdAsync(int id)
@@ -54,21 +71,9 @@ namespace GameOhThrones.Core.Services
             return await GetAsync<Character>(new Uri(serverUrl, $"api/characters/{id}"));
         }
 
-        public static async Task<List<Character>> GetCharacterByURLAsync(string[] urls)
+        public static async Task<List<Character>> GetCharacterByURLAsync(string[] urls, int limit)
         {
-            List<Character> chlist = new List<Character>();
-            if (urls != null)
-            {
-                foreach (string url in urls)
-                {
-                    var character =  await GetAsync<Character>(new Uri(url));
-                    if (character != null)
-                        chlist.Add(character);
-                    if (chlist.Count > 15)
-                        break;
-                }
-            }
-            return chlist;
+            return await GetByUrlAsync<Character>(urls, limit);
         }
 
         public static async Task<List<House>> GetAllHousesAsync()
@@ -76,9 +81,9 @@ namespace GameOhThrones.Core.Services
             return await GetAsync<List<House>>(new Uri(serverUrl, "api/houses"));
         }
 
-        public static async Task<House> GetHouseByUrlAsync(string url)
+        public static async Task<List<House>> GetHouseByURLAsync(string[] urls, int limit)
         {
-            return await GetAsync<House>(new Uri(url));
+            return await GetByUrlAsync<House>(urls, limit);
         }
     }
 }

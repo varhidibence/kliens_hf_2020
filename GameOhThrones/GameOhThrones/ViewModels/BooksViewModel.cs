@@ -29,41 +29,39 @@ namespace GameOhThrones.ViewModels
         {
         }
 
-        public async Task LoadDataAsync(MasterDetailsViewState viewState, string[] urls = null)
+        public async Task LoadDataAsync(MasterDetailsViewState viewState)
         {
             SampleItems.Clear();
+            var books = await GameOfThronesDataService.GetAllBooksAsync();
 
-            if (urls != null)
+            foreach (var book in books)
             {
-                foreach (string url in urls)
+                if (book != null)
                 {
-                    int i = 0;
-                    if (url != null)
-                    {
-                        var book = await GameOfThronesDataService.GetBookByUrlAsync(url);
-                        if (book != null)
-                        {
-                            
-                            SampleItems.Add(book);
-                            if (++i > 15)
-                                break;
-                        }
-
-                    }
-
+                    SampleItems.Add(book);
                 }
             }
-            else
+
+            if (viewState == MasterDetailsViewState.Both)
             {
-                //var data = await SampleDataService.GetSampleBookAsync();
-                var data = await GameOfThronesDataService.GetAllBooksAsync();
-
-                foreach (var item in data)
+                if (SampleItems != null)
+                    Selected = SampleItems.First();
+            }
+        }
+        public async Task LoadDataAsyncWithURLs(MasterDetailsViewState viewState, string[] urls = null)
+        {
+            SampleItems.Clear();
+            if (urls != null)
+            {
+                var books = await GameOfThronesDataService.GetBookByUrlAsync(urls, 15);
+                SampleItems.Clear();
+                foreach (var book in books)
                 {
-                    if (item != null)
-                        SampleItems.Add(item);
+                    if (book != null)
+                    {
+                        SampleItems.Add(book);
+                    }
                 }
-
             }
 
             if (viewState == MasterDetailsViewState.Both)
