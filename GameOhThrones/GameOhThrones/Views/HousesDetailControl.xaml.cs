@@ -33,30 +33,49 @@ namespace GameOhThrones.Views
             control.ForegroundElement.ChangeView(0, 0, 1);
         }
 
+        /// <summary>
+        /// Navigates to the page of characters with the current lord of the actual character
+        /// </summary>
         private void ShowCurrentLordByUrl(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(typeof(CharactersPage), MasterMenuItem.currentLord);
         }
 
+        /// <summary>
+        /// Navigates to the page of characters with the heir of the actual character
+        /// </summary>
         private void ShowHeirByUrl(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(typeof(CharactersPage), MasterMenuItem.heir);
         }
 
+        /// <summary>
+        /// Navigates to the page of houses with the overlord of the actual character
+        /// </summary>
         private void ShowOverlordByUrl(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(typeof(HousesPage), MasterMenuItem.overlord);
         }
 
+        /// <summary>
+        /// Navigates to the page of characters with the founder of the actual character
+        /// </summary>
         private void ShowFounderByUrl(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(typeof(CharactersPage), MasterMenuItem.founder);
         }
+
+        /// <summary>
+        /// Navigates to the page of houses with the list of cadet branches of the actual character
+        /// </summary>
         private void ShowCadetBranchesByUrls(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(typeof(HousesPage), MasterMenuItem.cadetBranches);
         }
-
+        
+        /// <summary>
+        /// Navigates to the page of characters with the list of sworn members of the actual character
+        /// </summary>
         private void ShowSwornMembersByUrls(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(typeof(CharactersPage), MasterMenuItem.swornMembers);

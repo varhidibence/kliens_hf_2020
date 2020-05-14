@@ -11,13 +11,12 @@
         Name="ForegroundElement"
         Padding="{StaticResource DetailPageMargin}"
         HorizontalAlignment="Stretch"
-        Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+        Background="AntiqueWhite"
         VerticalScrollMode="Enabled">
         <StackPanel HorizontalAlignment="Left">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
                 
                 <TextBlock
-                    Margin="{StaticResource SmallTopMargin}"
                     VerticalAlignment="Center"
                     Text="{x:Bind MasterMenuItem.name, Mode=OneWay}"
                     Style="{ThemeResource TitleTextBlockStyle}" />

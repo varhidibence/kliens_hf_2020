@@ -33,30 +33,49 @@ namespace GameOhThrones.Views
             control.ForegroundElement.ChangeView(0, 0, 1);
         }
 
+        /// <summary>
+        /// Navigates to the page of characters with the father of the actual character
+        /// </summary>
         private void ShowFatherByUrl(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(typeof(CharactersPage), MasterMenuItem.father);
         }
 
+        /// <summary>
+        /// Navigates to the page of characters with the mother of the actual character
+        /// </summary>
         private void ShowMotherByUrl(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(typeof(CharactersPage), MasterMenuItem.mother);
         }
 
+        /// <summary>
+        /// Navigates to the page of characters with the list of spouses of the actual character
+        /// </summary>
         private void ShowSpousesByUrls(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(typeof(CharactersPage), MasterMenuItem.Spouse);
         }
 
+        /// <summary>
+        /// Navigates to the page of houses with the list of allegiances of the actual character
+        /// </summary>
         private void ShowAllegiancesByUrls(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(typeof(HousesPage), MasterMenuItem.allegiances);
         }
 
+        /// <summary>
+        /// Navigates to the page of books with the list of books of the actual character
+        /// </summary>
         private void ShowBooksByUrls(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(typeof(BooksPage), MasterMenuItem.books);
         }
+
+        /// <summary>
+        /// Navigates to the page of books with the list of povbooks of the actual character
+        /// </summary>
         private void ShowPOVBooksByUrls(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(typeof(BooksPage), MasterMenuItem.povBooks);

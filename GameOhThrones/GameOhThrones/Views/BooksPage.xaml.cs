@@ -8,6 +8,9 @@ using Windows.UI.Xaml.Navigation;
 
 namespace GameOhThrones.Views
 {
+    /// <summary>
+    /// Main Page of Books
+    /// </summary>
     public sealed partial class BooksPage : Page
     {
         public BooksViewModel ViewModel { get; } = new BooksViewModel();
@@ -18,11 +21,18 @@ namespace GameOhThrones.Views
             Loaded += BooksPage_Loaded;
         }
 
+        /// <summary>
+        /// Default loading datas of books
+        /// </summary>
         private async void BooksPage_Loaded(object sender, RoutedEventArgs e)
         {
             await ViewModel.LoadDataAsync(MasterDetailsViewControl.ViewState);
         }
 
+        /// <summary>
+        /// Loading datas of books for the page by URLs
+        /// </summary>
+        /// <param name="e">URLs parameters, if any</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             List<string> booksURL = new List<string>();
@@ -31,9 +41,12 @@ namespace GameOhThrones.Views
             {
                 LoadURL(booksURL);
             }
-            //base.OnNavigatedTo(e);
         }
 
+        /// <summary>
+        /// Loading datas of books for the page by URLs
+        /// </summary>
+        /// <param name="booksURL">list of URLs of books</param>
         private async void LoadURL(List<string> booksURL)
         {
             await ViewModel.LoadDataAsyncWithURLs(MasterDetailsViewControl.ViewState, booksURL.ToArray() );

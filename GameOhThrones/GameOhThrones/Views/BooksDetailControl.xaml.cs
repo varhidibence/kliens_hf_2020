@@ -35,11 +35,17 @@ namespace GameOhThrones.Views
             control.ForegroundElement.ChangeView(0, 0, 1);
         }
 
+        /// <summary>
+        /// Navigates to the page of characters with the list of characters of the actual book
+        /// </summary>
         private void ShowCharacters_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(typeof(CharactersPage), MasterMenuItem.characters);
         }
 
+        /// <summary>
+        /// Navigates to the page of characters with the list of POVcharacters of the actual book
+        /// </summary>
         private void ShowPOVCharacters_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(typeof(CharactersPage), MasterMenuItem.povCharacters);

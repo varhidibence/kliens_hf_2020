@@ -21,11 +21,11 @@
                     Margin="{StaticResource SmallLeftMargin}"
                     VerticalAlignment="Center">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Style="{StaticResource ListSubTitleStyle}" Text="Name: " />
+                        <TextBlock Style="{StaticResource ListSubTitleStyle}" Text="Name:  " />
                         <TextBlock Style="{ThemeResource ListTitleStyle}" Text="{x:Bind name}" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource ListSubTitleStyle}" Text="Culture: " />
+                    <TextBlock Style="{StaticResource ListSubTitleStyle}" Text="Culture:  " />
                     <TextBlock Style="{StaticResource ListSubTitleStyle}" Text="{x:Bind culture}" />
                     </StackPanel>
                 </StackPanel>

@@ -4,14 +4,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:local="using:GameOhThrones.Core.Models"
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
     <ScrollViewer
         Name="ForegroundElement"
         Padding="{StaticResource DetailPageMargin}"
-        Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+        HorizontalAlignment="Stretch"
+        Background="AliceBlue"
         VerticalScrollMode="Enabled" Margin="0,0,0,-293">
         <StackPanel HorizontalAlignment="Left">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
@@ -22,7 +22,6 @@
                     Glyph="{x:Bind MasterMenuItem.Symbol, Mode=OneWay}" /> -->
                 <TextBlock Style="{StaticResource DetailSubTitleStyle}" Text="Title" />
                 <TextBlock
-                    Margin="{StaticResource SmallTopMargin}"
                     VerticalAlignment="Center"
                     Text="{x:Bind MasterMenuItem.name, Mode=OneWay}"
                     Style="{ThemeResource TitleTextBlockStyle}" />
