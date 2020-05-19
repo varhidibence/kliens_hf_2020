@@ -45,8 +45,8 @@
                     Text="Titles" />
                 <TextBlock Style="{StaticResource DetailBodyBaseMediumStyle}" Text="{x:Bind MasterMenuItem.titles.Count, Mode=OneWay}" />
                 <ScrollContentPresenter>
-                    <ListBox ItemsSource="{x:Bind MasterMenuItem.titles.ToArray()}" MaxHeight="200"
-                                MinHeight="10" Background="Azure"></ListBox>
+                    <ListBox ItemsSource="{Binding Path=MasterMenuItem.titles}"
+                        MinHeight="20"/>
                 </ScrollContentPresenter>
                 <TextBlock
                     Margin="{StaticResource SmallTopMargin}"
@@ -54,7 +54,7 @@
                     Text="Aliases" />
                 <TextBlock Style="{StaticResource DetailBodyBaseMediumStyle}" Text="{x:Bind MasterMenuItem.aliases, Mode=OneWay}" />
                 <ScrollContentPresenter>
-                    <ListBox ItemsSource="{x:Bind MasterMenuItem.aliases}" MaxHeight="200"
+                    <ListBox ItemsSource="{x:Bind MasterMenuItem}" DisplayMemberPath="aliases" MaxHeight="200"
                                 MinHeight="10" Background="Azure"></ListBox>
                 </ScrollContentPresenter>
                 <TextBlock
@@ -62,7 +62,7 @@
                     Style="{StaticResource DetailSubTitleStyle}"
                     Text="Father" />
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource DetailBodyBaseMediumStyle}" Text="{x:Bind MasterMenuItem.father, Mode=OneWay}" />
+                    
                     <Button Content="Show" Click="ShowFatherByUrl"/>
                 </StackPanel>
                 
@@ -71,7 +71,7 @@
                     Style="{StaticResource DetailSubTitleStyle}"
                     Text="Mother" />
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource DetailBodyBaseMediumStyle}" Text="{x:Bind MasterMenuItem.mother, Mode=OneWay}" />
+                    
                     <Button Content="Show" Click="ShowMotherByUrl"/>
                 </StackPanel>
                 
@@ -80,7 +80,7 @@
                     Style="{StaticResource DetailSubTitleStyle}"
                     Text="Spouse" />
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource DetailBodyBaseMediumStyle}" Text="{x:Bind MasterMenuItem.Spouse, Mode=OneWay}" />
+                    
                     <Button Content="Show" Click="ShowSpousesByUrls"/>
                 </StackPanel>
                 

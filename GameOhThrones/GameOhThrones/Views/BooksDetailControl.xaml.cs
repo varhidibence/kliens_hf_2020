@@ -40,7 +40,8 @@ namespace GameOhThrones.Views
         /// </summary>
         private void ShowCharacters_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(typeof(CharactersPage), MasterMenuItem.characters);
+            if (MasterMenuItem.characters != null && MasterMenuItem.characters.Count > 0)
+                NavigationService.Navigate(typeof(CharactersPage), MasterMenuItem.characters);
         }
 
         /// <summary>
@@ -48,7 +49,14 @@ namespace GameOhThrones.Views
         /// </summary>
         private void ShowPOVCharacters_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(typeof(CharactersPage), MasterMenuItem.povCharacters);
+            if (MasterMenuItem.povCharacters != null && MasterMenuItem.povCharacters.Count > 0)
+                NavigationService.Navigate(typeof(CharactersPage), MasterMenuItem.povCharacters);
+        }
+
+        private void Search_Click(object sender, RoutedEventArgs e)
+        {
+            //if (searchBox.Text != null && searchBox.Text.Length > 0)
+                
         }
     }
 }

@@ -38,7 +38,9 @@ namespace GameOhThrones.Views
         /// </summary>
         private void ShowCurrentLordByUrl(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(typeof(CharactersPage), MasterMenuItem.currentLord);
+            if (MasterMenuItem.currentLord != null && MasterMenuItem.currentLord.Length > 0
+                    && MasterMenuItem.currentLord != "N/A")
+                NavigationService.Navigate(typeof(CharactersPage), MasterMenuItem.currentLord);
         }
 
         /// <summary>
@@ -46,7 +48,9 @@ namespace GameOhThrones.Views
         /// </summary>
         private void ShowHeirByUrl(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(typeof(CharactersPage), MasterMenuItem.heir);
+            if (MasterMenuItem.heir != null && MasterMenuItem.heir.Length > 0
+                && MasterMenuItem.heir != "N/A")
+                NavigationService.Navigate(typeof(CharactersPage), MasterMenuItem.heir);
         }
 
         /// <summary>
@@ -54,7 +58,9 @@ namespace GameOhThrones.Views
         /// </summary>
         private void ShowOverlordByUrl(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(typeof(HousesPage), MasterMenuItem.overlord);
+            if (MasterMenuItem.overlord != null && MasterMenuItem.overlord.Length > 0
+                && MasterMenuItem.overlord != "N/A")
+                NavigationService.Navigate(typeof(HousesPage), MasterMenuItem.overlord);
         }
 
         /// <summary>
@@ -62,7 +68,9 @@ namespace GameOhThrones.Views
         /// </summary>
         private void ShowFounderByUrl(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(typeof(CharactersPage), MasterMenuItem.founder);
+            if (MasterMenuItem.founder != null && MasterMenuItem.founder.Length > 0
+                 && MasterMenuItem.founder != "N/A")
+                NavigationService.Navigate(typeof(CharactersPage), MasterMenuItem.founder);
         }
 
         /// <summary>
@@ -70,7 +78,8 @@ namespace GameOhThrones.Views
         /// </summary>
         private void ShowCadetBranchesByUrls(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(typeof(HousesPage), MasterMenuItem.cadetBranches);
+            if (MasterMenuItem.cadetBranches != null && MasterMenuItem.cadetBranches.Count > 0)
+                NavigationService.Navigate(typeof(HousesPage), MasterMenuItem.cadetBranches);
         }
         
         /// <summary>
@@ -78,7 +87,8 @@ namespace GameOhThrones.Views
         /// </summary>
         private void ShowSwornMembersByUrls(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(typeof(CharactersPage), MasterMenuItem.swornMembers);
+            if (MasterMenuItem.swornMembers != null && MasterMenuItem.swornMembers.Count > 0)
+                NavigationService.Navigate(typeof(CharactersPage), MasterMenuItem.swornMembers);
         }
         
     }

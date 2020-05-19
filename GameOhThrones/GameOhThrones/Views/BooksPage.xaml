@@ -11,16 +11,12 @@
     mc:Ignorable="d">
     <Page.Resources>
         <DataTemplate x:Key="ItemTemplate" x:DataType="model:Book">
+            
             <Grid Height="60 ">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <!--<FontIcon
-                    Grid.Column="0"
-                    VerticalAlignment="Center"
-                    FontSize="32"
-                    Glyph="{x:Bind Symbol}" /> -->
                 <StackPanel
                     Grid.Column="1"
                     Margin="{StaticResource SmallLeftMargin}"
@@ -53,7 +49,7 @@
                     TextAlignment="Center" />
             </Grid>
         </DataTemplate>
-
+    
         <DataTemplate x:Key="MasterHeaderTemplate">
             <Grid Height="40">
                 <TextBlock
@@ -78,5 +74,6 @@
             MasterHeaderTemplate="{StaticResource MasterHeaderTemplate}"
             NoSelectionContentTemplate="{StaticResource NoSelectionContentTemplate}"
             SelectedItem="{x:Bind ViewModel.Selected, Mode=TwoWay}" />
+
     </Grid>
 </Page>

@@ -35,10 +35,23 @@ namespace GameOhThrones.Views
         /// <param name="e">URLs parameters, if any</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            List<string> houseURL = new List<string>();
-            houseURL = e.Parameter as List<string>;
-            if (houseURL != null)
-                LoadURL(houseURL);
+            if (e.Parameter != null)
+            {
+                List<string> housesURL = new List<string>();
+                housesURL = e.Parameter as List<string>;
+                if (housesURL != null)
+                    LoadURL(housesURL);
+                else
+                {
+                    string houseURL = e.Parameter as string;
+                    if (houseURL != null)
+                    {
+                        housesURL = new List<string>();
+                        housesURL.Add(houseURL);
+                        LoadURL(housesURL);
+                    }     
+                }
+            }
         }
 
         /// <summary>

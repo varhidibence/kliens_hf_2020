@@ -38,7 +38,9 @@ namespace GameOhThrones.Views
         /// </summary>
         private void ShowFatherByUrl(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(typeof(CharactersPage), MasterMenuItem.father);
+            if (MasterMenuItem.father != null && MasterMenuItem.father.Length > 0
+                && MasterMenuItem.father != "N/A")
+                NavigationService.Navigate(typeof(CharactersPage), MasterMenuItem.father);
         }
 
         /// <summary>
@@ -46,7 +48,9 @@ namespace GameOhThrones.Views
         /// </summary>
         private void ShowMotherByUrl(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(typeof(CharactersPage), MasterMenuItem.mother);
+            if (MasterMenuItem.mother != null && MasterMenuItem.mother.Length > 0
+                && MasterMenuItem.mother != "N/A")
+                NavigationService.Navigate(typeof(CharactersPage), MasterMenuItem.mother);
         }
 
         /// <summary>
@@ -54,7 +58,9 @@ namespace GameOhThrones.Views
         /// </summary>
         private void ShowSpousesByUrls(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(typeof(CharactersPage), MasterMenuItem.Spouse);
+            if (MasterMenuItem.Spouse != null && MasterMenuItem.Spouse.Length > 0
+                && MasterMenuItem.Spouse != "N/A")
+                NavigationService.Navigate(typeof(CharactersPage), MasterMenuItem.Spouse);
         }
 
         /// <summary>
@@ -62,7 +68,8 @@ namespace GameOhThrones.Views
         /// </summary>
         private void ShowAllegiancesByUrls(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(typeof(HousesPage), MasterMenuItem.allegiances);
+            if (MasterMenuItem.allegiances != null && MasterMenuItem.allegiances.Count > 0)
+                NavigationService.Navigate(typeof(HousesPage), MasterMenuItem.allegiances);
         }
 
         /// <summary>
@@ -70,7 +77,8 @@ namespace GameOhThrones.Views
         /// </summary>
         private void ShowBooksByUrls(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(typeof(BooksPage), MasterMenuItem.books);
+            if (MasterMenuItem.books != null && MasterMenuItem.books.Count > 0)
+                NavigationService.Navigate(typeof(BooksPage), MasterMenuItem.books);
         }
 
         /// <summary>
@@ -78,7 +86,8 @@ namespace GameOhThrones.Views
         /// </summary>
         private void ShowPOVBooksByUrls(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(typeof(BooksPage), MasterMenuItem.povBooks);
+            if (MasterMenuItem.povBooks != null && MasterMenuItem.povBooks.Count > 0)
+                NavigationService.Navigate(typeof(BooksPage), MasterMenuItem.povBooks);
         }
 
         

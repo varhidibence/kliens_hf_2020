@@ -12,19 +12,20 @@
         Padding="{StaticResource DetailPageMargin}"
         HorizontalAlignment="Stretch"
         Background="AliceBlue"
-        VerticalScrollMode="Enabled" Margin="0,0,0,-293">
+        VerticalScrollMode="Enabled">
         <StackPanel HorizontalAlignment="Left">
+            <!--<StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <TextBox x:Name="searchBox" PlaceholderText="name" HorizontalAlignment="Right"/>
+                <Button Content="Search" Click="Search_Click" HorizontalAlignment="Right"/>
+            </StackPanel>-->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
-                <!--<FontIcon
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    FontSize="48"
-                    Glyph="{x:Bind MasterMenuItem.Symbol, Mode=OneWay}" /> -->
+
                 <TextBlock Style="{StaticResource DetailSubTitleStyle}" Text="Title" />
                 <TextBlock
                     VerticalAlignment="Center"
                     Text="{x:Bind MasterMenuItem.name, Mode=OneWay}"
                     Style="{ThemeResource TitleTextBlockStyle}" />
+                
             </StackPanel>
             <StackPanel Name="block" Padding="0,15,0,0">
                 <TextBlock Style="{StaticResource DetailSubTitleStyle}" Text="ISBN number" />

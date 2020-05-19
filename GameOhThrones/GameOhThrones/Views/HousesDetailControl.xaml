@@ -40,16 +40,16 @@
                     Style="{StaticResource DetailSubTitleStyle}"
                     Text="Titles" />
                 <ScrollContentPresenter>
-                    <ListBox ItemsSource="{x:Bind MasterMenuItem.titles}" MaxHeight="200"
-                                MinHeight="10" Background="Azure"></ListBox>
+                    <ListView ItemsSource="{x:Bind MasterMenuItem.titles}">
+                    </ListView>
                 </ScrollContentPresenter>
                 <TextBlock
                     Margin="{StaticResource SmallTopMargin}"
                     Style="{StaticResource DetailSubTitleStyle}"
                     Text="Seats" />
                 <ScrollContentPresenter>
-                    <ListBox ItemsSource="{x:Bind MasterMenuItem.seats}" MaxHeight="200"
-                                MinHeight="10" Background="Azure"></ListBox>
+                    <ListBox MaxHeight="200"
+                        ItemsSource="{x:Bind MasterMenuItem.seats}"/>
                 </ScrollContentPresenter>
                 
                 <TextBlock
