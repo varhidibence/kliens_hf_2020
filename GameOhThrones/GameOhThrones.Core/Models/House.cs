@@ -5,6 +5,9 @@ using System.Text;
 namespace GameOhThrones.Core.Models
 {
 
+    /// <summary>
+    /// Data class of House in Game of Thrones world
+    /// </summary>
     public class House
     {
         public string url { get; set; }

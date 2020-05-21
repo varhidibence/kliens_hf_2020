@@ -19,7 +19,7 @@ namespace GameOhThrones.ViewModels
     public class HousesViewModel : Observable
     {
         private House _selected;
-        private int limit = 15;
+        private int limit = 20;
 
         public House Selected
         {
@@ -27,6 +27,9 @@ namespace GameOhThrones.ViewModels
             set { Set(ref _selected, value); }
         }
 
+        /// <summary>
+        /// stored list of houses of the page
+        /// </summary>
         public ObservableCollection<House> SampleItems { get; private set; } =
             new ObservableCollection<House>();
 

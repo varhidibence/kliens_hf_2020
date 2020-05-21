@@ -21,13 +21,16 @@ namespace GameOhThrones.ViewModels
     public class CharactersViewModel : Observable
     {
         private Character _selected;
-        private int limit = 15;
+        private int limit = 20;
         public Character Selected
         {
             get { return _selected; }
             set { Set(ref _selected, value); }
         }
 
+        /// <summary>
+        /// stored characters of the page
+        /// </summary>
         public ObservableCollection<Character> SampleItems { get; private set; } =
             new ObservableCollection<Character>();
 

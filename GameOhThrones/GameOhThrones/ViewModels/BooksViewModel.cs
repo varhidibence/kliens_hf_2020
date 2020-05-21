@@ -20,7 +20,7 @@ namespace GameOhThrones.ViewModels
     public class BooksViewModel : Observable
     {
         private Book _selected;
-        private int limit = 15;
+        private int limit = 20;
 
         public Book Selected
         {
@@ -28,6 +28,9 @@ namespace GameOhThrones.ViewModels
             set { Set(ref _selected, value); }
         }
 
+        /// <summary>
+        /// stored books of the page
+        /// </summary>
         public ObservableCollection<Book> SampleItems { get; private set; } =
                 new ObservableCollection<Book>();
 

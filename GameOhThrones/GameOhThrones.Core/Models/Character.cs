@@ -4,7 +4,9 @@ using System.Text;
 
 namespace GameOhThrones.Core.Models
 {
-
+    /// <summary>
+    /// Data class of character in Game of Thrones world
+    /// </summary>
     public class Character
     {
         public Character() { }

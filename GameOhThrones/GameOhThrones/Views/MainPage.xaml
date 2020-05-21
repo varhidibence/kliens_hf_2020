@@ -8,7 +8,7 @@
     mc:Ignorable="d">
     <Grid x:Name="ContentArea" Margin="{StaticResource MediumLeftRightMargin}">
         <Grid
-            Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+            Background="Azure">
             <Image Source="/Assets/got2.png" HorizontalAlignment="Center" Height="310" VerticalAlignment="Center" Width="800"/>
             <!--
                 The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
